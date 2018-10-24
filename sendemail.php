@@ -1,6 +1,6 @@
 <?php
 require 'vendor/autoload.php';
-
+//function
 function send_email($emails, $subject, $body) {
     $emails = explode(",", $emails);
     foreach ($emails as $email) {
