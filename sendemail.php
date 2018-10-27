@@ -1,9 +1,10 @@
 <?php
 require 'vendor/autoload.php';
-//function
+
 function send_email($emails, $subject, $body) {
+
     $emails = explode(",", $emails);
-    foreach ($emails as $email) {
+    for ($i = 0; $i< count($emails); $i++) {
       //send email
       $mail = new PHPMailer;
       $mail->isSMTP();
@@ -11,11 +12,11 @@ function send_email($emails, $subject, $body) {
       $mail->Port = 25;
       $mail->SMTPAuth = true;
       $mail->Host = "smtp.gmail.com";
-      $mail->Username = 'lithanm6@gmail.com';
-      $mail->Password = "H245hyt12";
+      $mail->Username = 'sender@gmail.com';
+      $mail->Password = "password";
 
-      $mail->setFrom('lithanm6@gmail.com', 'admin');
-      $mail->addAddress($email, 'User');
+      $mail->setFrom('sender@gmail.com', 'admin');
+      $mail->addAddress($emails[0], 'User');
       $mail->Subject  = $subject;
       $mail->Body     = $body;
       $mail->send();
@@ -27,8 +28,8 @@ function send_email($emails, $subject, $body) {
       echo 'Message has been sent.';
     }
 }
-$emails = 'khazin316@gmail.com, khazingekko@gmail.com';
+$emails = 'test1@mail.com, test2@mail.com';
 $subject = 'test subject';
-$body = 'test email'
+$body = 'test email';
 send_email($emails, $subject, $body);
  ?>
