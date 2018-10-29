@@ -16,7 +16,7 @@ function send_email($emails, $subject, $body) {
       $mail->Password = "password";
 
       $mail->setFrom('sender@gmail.com', 'admin');
-      $mail->addAddress($emails[$i], 'User');
+      $mail->addAddress($emails[0], 'User');
       $mail->Subject  = $subject;
       $mail->Body     = $body;
       $mail->send();
