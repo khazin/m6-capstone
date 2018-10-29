@@ -9,7 +9,9 @@ function send_email($emails, $subject, $body) {
       $mail = new PHPMailer;
       $mail->isSMTP();
 
-      $mail->Port = 25;
+      $mail->SMTPDebug = 0;
+      $mail->Port = 587;
+      $mail->SMTPSecure ='tls';
       $mail->SMTPAuth = true;
       $mail->Host = "smtp.gmail.com";
       $mail->Username = 'sender@gmail.com';
@@ -28,7 +30,7 @@ function send_email($emails, $subject, $body) {
       echo 'Message has been sent.';
     }
 }
-$emails = 'test1@mail.com, test2@mail.com';
+$emails = 'testemail1@mail.com, testemail2@mail.com';
 $subject = 'test subject';
 $body = 'test email';
 send_email($emails, $subject, $body);
