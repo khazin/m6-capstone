@@ -5,7 +5,7 @@ function send_email($emails, $subject, $body) {
 
     $emails = explode(",", $emails);
     for ($i = 0; $i< count($emails); $i++) {
-      //send email
+      //send emails
       $mail = new PHPMailer;
       $mail->isSMTP();
 
